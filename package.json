@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Frontend development environment",
   "author": "Thomas Chui",
-  "scripts": {},
+  "scripts": {
+    "build": "webpack --mode=production && cp src/index.html dist/index.html && cp src/index.css dist/index.css"
+  },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.0.0",

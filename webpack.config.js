@@ -1,23 +1,15 @@
-import path from 'path';
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-export default {
-  devtool: 'source-map',
-  entry: [
-    path.resolve(__dirname, './src/index.js')
-  ],
-  target: 'web',
-  output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/',
-    filename: 'bundle.js'
+var path = require("path");
+
+module.exports = {
+  // Change to your "entry-point".
+  entry: {
+    index: './src/index.js',
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './client/src/app/index.html',
-      inject: true
-    })
-  ],
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].bundle.js",
+    chunkFilename: '[name].bundle.js',
+  },
   module: {
     rules: [
       { test: /\.(ts|js)x?$/, exclude: /node_modules/, loader: "babel-loader" },
@@ -25,4 +17,5 @@ export default {
       { test: /\.svg$/, use: "url-loader" },
     ],
   },
-}
+  plugins: [],
+};
