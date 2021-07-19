@@ -4,6 +4,9 @@
 ```bash
 make build
 make sh
+
+# in the container, local dev env
+npm run server
 ```
 
 ##### cmd
