@@ -1,9 +1,9 @@
 var path = require("path");
 
 module.exports = {
-  // Change to your "entry-point".
+  mode: 'development',
   entry: {
-    index: './src/index.js',
+    index: './src/app.js',
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -12,10 +12,27 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.(ts|js)x?$/, exclude: /node_modules/, loader: "babel-loader" },
-      { test: /\.css$/, use: "css-loader" },
-      { test: /\.svg$/, use: "url-loader" },
+      {
+        test: /\.(ts|js)x?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
+      {
+        test:  /\.s[ac]ss$/i,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+      },
     ],
   },
   plugins: [],
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    hot: true,
+    compress: true,
+    port: 8080,
+    host: '0.0.0.0',
+  },
 };

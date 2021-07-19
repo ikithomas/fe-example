@@ -12,4 +12,4 @@ build:
 	@docker-compose build app
 
 sh:
-	@docker-compose run --rm app bash
+	@docker-compose run  --service-ports --rm app bash

@@ -13,10 +13,4 @@ RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
 
 COPY package.json .
 
-# 
-
-# webpack
-RUN npm install --save-dev \
-  webpack@4.17.2 \
-  webpack-cli@3.1.2 \
-  webpack-dev-server@3.1.7
+RUN npm install
